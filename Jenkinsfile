@@ -8,12 +8,12 @@ pipeline {
         }
         stage('--test--') {
             steps {
-                bat "mvn test"
+               git pull origin master
             }
         }
         stage('--package--') {
             steps {
-                bat "mvn package"
+                yarn build
             }
         }
     }
