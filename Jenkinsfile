@@ -3,19 +3,18 @@ pipeline {
     stages {
         stage('---clean---') {
             steps {
-                bat 'mvn --version' 
+                sh "mvn clean"
             }
         }
         stage('--test--') {
             steps {
-               git pull origin master
+                sh "mvn test"
             }
         }
         stage('--package--') {
             steps {
-                yarn build
+                sh "mvn package"
             }
         }
     }
 }
-
